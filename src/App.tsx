@@ -2,7 +2,7 @@ import Board from "./components/Board/Board";
 
 const App = () => {
   return (
-    <div>
+    <div className="container">
       <Board />
     </div>
   );

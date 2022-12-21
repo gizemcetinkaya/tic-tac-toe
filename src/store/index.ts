@@ -5,7 +5,7 @@ import appSlice from "../features/appSlice";
 
 const store = configureStore({
     reducer: {
-        tictactoe: appSlice
+        game: appSlice
     }
 });
 

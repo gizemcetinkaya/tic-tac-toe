@@ -1,21 +1,35 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export type StateType = {
-    board: [],
+export type BoardState = {
+    board: string[],
     player: string,
-    winner: string
+    winner: null
 }
 
-const initialState: StateType = {
-    board: [],
-    player: "",
-    winner: ""
-} 
+const initialState: BoardState = {
+    board: Array(9).fill(""),
+    player: "O",
+    winner: null
+}
 
 const appSlice = createSlice({
-    name: "tictactoe",
+    name: "game",
     initialState,
-    reducers: {}
+    reducers: {
+        setBoard: (state, action: PayloadAction<number>) => {
+            let payload = action.payload;
+            state.board.map((val, index) => {
+                if (index === payload && val === "") {
+                    return state.board[index] = state.player;
+                }
+                return val;
+            });
+        },
+        setPlayer: (state, action) => {
+            state.player === "X" ? state.player = "O" : state.player = "X";
+        }
+    }
 });
 
 export default appSlice.reducer;
+export const { setBoard, setPlayer } = appSlice.actions;
