@@ -1,12 +1,16 @@
 body {
     padding: 0;
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #554778;
+    color: #ffebf0;
 }
 
 .container {
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -14,10 +18,9 @@ body {
 .board {
     width: 500px;
     height: 500px;
-    background-color: lightpink;
-    border: 1px solid orange;
     display: flex;
     flex-direction: column;
+    margin-bottom: 1rem;
 }
 
 .row {
@@ -29,14 +32,44 @@ body {
 .square {
     flex: 33%;
     height: 100%;
-    border: 1px solid orange;
+    background: #2b2f6c;
+    border: 1px solid #9d6c82;
+    border-radius: 2rem;
     cursor: pointer;
     display: grid;
     place-items: center;
-    font-size: 2rem;
-    color: black;
+    font-size: 5rem;
+    font-weight: bold;
 }
 
 .square:active {
-    background-color: lightyellow;
+    background-color: #9d6c82;
+}
+
+.text {
+    margin: 3rem 0;
+    font-size: 1.5rem;
+}
+
+.button {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #2b2f6c;
+    cursor: pointer;
+    border: 3px solid;
+    padding: 0.25em 2rem;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button:active {
+    box-shadow: 0px 0px 0px 0px;
+    top: 5px;
+    left: 5px;
 }

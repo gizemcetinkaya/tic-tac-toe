@@ -3,12 +3,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 export type BoardState = {
     board: string[],
     player: string,
-    winner: null
+    winner: string | null
 }
 
 const initialState: BoardState = {
     board: Array(9).fill(""),
-    player: "O",
+    player: "",
     winner: null
 }
 
@@ -26,10 +26,17 @@ const appSlice = createSlice({
             });
         },
         setPlayer: (state, action) => {
-            state.player === "X" ? state.player = "O" : state.player = "X";
-        }
+            if(state.player !== action.payload) {
+                state.player = state.player === "X" ? "X" : "O";
+            }
+            state.player = action.payload;
+        },
+        setWinner: (state, action) => {
+            state.winner = action.payload;
+        },
+        restartGame: () => initialState
     }
 });
 
 export default appSlice.reducer;
-export const { setBoard, setPlayer } = appSlice.actions;
+export const { setBoard, setPlayer, setWinner, restartGame } = appSlice.actions;
