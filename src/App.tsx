@@ -7,17 +7,18 @@ const App = () => {
 
   const player = useAppSelector(state => state.game.player);
   const winner = useAppSelector(state => state.game.winner);
+  const isFinished = useAppSelector(state => state.game.isFinished);
   const [winnerMessage, setWinnerMessage] = useState("");
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (winner !== null && winner !== "No one") {
+    if (isFinished && winner) {
       setWinnerMessage(`Game finished! Winning Player: ${winner}`);
     } else {
       setWinnerMessage(`Game finished! No one won`);
     }
-  }, [winner]);
+  }, [isFinished, winner]);
 
   const handleClick = () => {
     dispatch(restartGame());
@@ -26,11 +27,11 @@ const App = () => {
   return (
     <div className="container">
       {
-        winner === null && <div className="text">Now {player} is playing</div>
+        !isFinished && <div className="text">Now {player} is playing</div>
       }
       <Board />
       {
-        winner && <>
+        isFinished && <>
           <div className="text">{winnerMessage}</div>
           <button className="button" onClick={handleClick}>Replay</button>
         </>
