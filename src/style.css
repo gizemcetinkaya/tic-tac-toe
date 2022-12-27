@@ -46,6 +46,11 @@ body {
     background-color: #9d6c82;
 }
 
+.square.is-disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
 .text {
     margin: 3rem 0;
     font-size: 1.5rem;
