@@ -50,6 +50,10 @@ describe('app reducer', () => {
             isFinished: false
         }
 
+        store.dispatch(makeMove(0));
+        store.dispatch(makeMove(2));
+        store.dispatch(makeMove(4));
+
         // Act
         store.dispatch(restartGame());
 
