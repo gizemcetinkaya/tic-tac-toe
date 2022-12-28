@@ -1,7 +1,7 @@
 A Tic Tac Toe App using React JS & Typescript. 
 
-![Screenshot](screenshot.jpg)
-![Screenshot](screenshot2.jpg)
+![Screenshot](/public/screenshot.jpg)
+![Screenshot](/public/screenshot2.JPG)
 
 ## Instructions how to start the application.
 	Pull the git project to a directory of your choosing
