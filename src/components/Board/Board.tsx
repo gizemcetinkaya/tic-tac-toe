@@ -1,15 +1,22 @@
-import Row from "../Row/Row";
-import { useAppSelector } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store";
+import Square from "../Square/Square";
+import { makeMove } from "../../features/appSlice";
 
 const Board = () => {
 
     const board = useAppSelector(state => state.game.board);
 
+    const isFinished = useAppSelector(state => state.game.isFinished);
+    const dispatch = useAppDispatch();
+
+    const handleClick = (square: number) => {
+        dispatch(makeMove(square));
+    };
+
     return (
         <div className="board">
-            {board.map((row, index) => (
-                index % 3 === 0
-                    ? <Row key={index} board={board} row={Math.floor(index / 3)} /> : null
+            {board.map((value, index) => (
+                <Square key={index} isDisabled={isFinished} value={value} onClick={() => handleClick(index)} />
             ))}
         </div>
     )

@@ -16,11 +16,10 @@ body {
 }
 
 .board {
-    width: 500px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    place-items: center;
+    justify-content: center;
 }
 
 .row {
@@ -30,16 +29,18 @@ body {
 }
 
 .square {
-    flex: 33%;
-    height: 100%;
+    width: 11rem;
+    height: 11rem;
     background: #2b2f6c;
     border: 1px solid #9d6c82;
     border-radius: 2rem;
     cursor: pointer;
-    display: grid;
-    place-items: center;
     font-size: 5rem;
     font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .square:active {
