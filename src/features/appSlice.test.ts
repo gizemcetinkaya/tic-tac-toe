@@ -41,6 +41,20 @@ describe('app reducer', () => {
         });
     });
 
+    it('should not change the player when clicking filled square', () => {
+        // Arrange
+        store.dispatch(makeMove(0));
+
+        // Act
+        store.dispatch(makeMove(0));
+
+        // Assert
+        const board = store.getState().game.board;
+        const player = store.getState().game.player;
+        expect(board[0]).toBe("X");
+        expect(player).toBe("O");
+    });
+
     it('should initialize the state in the game when dispatch restartGame action', () => {
         // Arrange
         const expectedState: BoardState = {

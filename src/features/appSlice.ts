@@ -44,9 +44,9 @@ const appSlice = createSlice({
             state.board.map((val, index) => {
                 if (index === payload && val === "") {
                     state.board[index] = state.player;
+                    state.player = state.player === "X" ? "O" : "X";
                 }
             });
-            state.player = state.player === "X" ? "O" : "X";
             state.winner = getWinner(state.board);
             state.isFinished = state.board.every(x => x !== "") || state.winner !== null;
         },
