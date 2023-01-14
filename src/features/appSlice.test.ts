@@ -55,6 +55,29 @@ describe('app reducer', () => {
         expect(player).toBe("O");
     });
 
+    it('should winner is null when the game is draw', () => {
+        // Arrange
+        store.dispatch(makeMove(0));
+        store.dispatch(makeMove(1));
+        store.dispatch(makeMove(2));
+        store.dispatch(makeMove(3));
+        store.dispatch(makeMove(4));
+        store.dispatch(makeMove(6));
+        store.dispatch(makeMove(5));
+        store.dispatch(makeMove(8));
+
+        // Act
+        store.dispatch(makeMove(7));
+
+        // Assert
+        const winner = store.getState().game.winner;
+        const isFinished = store.getState().game.isFinished;
+
+        expect(winner).toBeNull();
+        expect(isFinished).toBeTruthy();
+        
+    });
+
     it('should initialize the state in the game when dispatch restartGame action', () => {
         // Arrange
         const expectedState: BoardState = {
