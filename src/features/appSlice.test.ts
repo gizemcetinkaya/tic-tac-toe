@@ -55,7 +55,7 @@ describe('app reducer', () => {
         expect(player).toBe("O");
     });
 
-    it('should winner is null when the game is draw', () => {
+    it('should winner be null when the game is draw', () => {
         // Arrange
         store.dispatch(makeMove(0));
         store.dispatch(makeMove(1));

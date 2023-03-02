@@ -7,7 +7,7 @@ type SquareProps = {
 const Square = (props: SquareProps) => {
 
     return (
-        <div className={props.isDisabled ? 'square is-disabled' : 'square'} onClick={props.onClick}>{props.value}</div>
+        <div className={props.isDisabled ? 'square is-disabled' : 'square'}  onClick={props.onClick}>{props.value}</div>
     )
 }
 
